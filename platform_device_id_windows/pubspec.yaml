@@ -10,12 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  platform_device_id_platform_interface: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 flutter:
   plugin:
+    implements: platform_device_id
     platforms:
       windows:
         pluginClass: PlatformDeviceIdWindowsPlugin
+        fileName: platform_device_id_windows.dart

@@ -11,7 +11,7 @@ dependencies:
 
   platform_device_id_windows:
     path: ../
-  platform_device_id_platform_interface: ^0.3.0
+  platform_device_id_platform_interface: ^1.0.0
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
