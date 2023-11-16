@@ -1,5 +1,5 @@
-import 'dart:io' as io;
 import 'package:platform_device_id_platform_interface/platform_device_id_platform_interface.dart';
+import 'package:win32_registry/win32_registry.dart';
 
 class PlatformDeviceIdWindowsPlugin extends PlatformDeviceIdPlatform {
   static void registerWith() {
@@ -8,8 +8,17 @@ class PlatformDeviceIdWindowsPlugin extends PlatformDeviceIdPlatform {
 
   @override
   Future<String?> getDeviceId() async {
-    final id = await io.Process.run('wmic', ['csproduct', 'get', 'uuid']);
+    const keypath = r'SOFTWARE\Microsoft\Cryptography';
+    final key = Registry.openPath(RegistryHive.localMachine, path: keypath);
 
-    return id.stdout.toString().split('\n')[1].trim();
+    final machineGuid = key.getValue('MachineGuid');
+
+    key.close();
+
+    try {
+      return machineGuid?.data as String?;
+    } catch (e) {
+      return null;
+    }
   }
 }

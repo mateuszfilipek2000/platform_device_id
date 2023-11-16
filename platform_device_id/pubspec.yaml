@@ -11,16 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  platform_device_id_platform_interface: 
-    path: ../platform_device_id_platform_interface
-  platform_device_id_macos: 
-    path: ../platform_device_id_macos
-  platform_device_id_linux: 
-    path: ../platform_device_id_linux
-  platform_device_id_web: 
-    path: ../platform_device_id_web
+  platform_device_id_platform_interface: ^1.0.0
+  platform_device_id_macos: ^1.0.0
+  platform_device_id_linux: ^1.0.0
+  platform_device_id_web: ^1.0.0
   platform_device_id_windows: 
-    path: ../platform_device_id_windows
+    git:
+      url: https://github.com/mateuszfilipek2000/platform_device_id
+      path: platform_device_id_windows
   device_info: ^2.0.0
 
 dev_dependencies:
