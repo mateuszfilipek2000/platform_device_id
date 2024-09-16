@@ -2,20 +2,25 @@ name: platform_device_id_windows
 description: windows implementation of the platform_device_id plugin.
 version: 1.0.0
 homepage: https://github.com/BestBurning/platform_device_id/tree/master/platform_device_id_windows
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.20.0"
+  sdk: ">=3.1.0 <4.0.0"
+  flutter: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  platform_device_id_platform_interface: ^1.0.0
+  win32_registry: ^1.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 flutter:
   plugin:
+    implements: platform_device_id
     platforms:
       windows:
-        pluginClass: PlatformDeviceIdWindowsPlugin
+        dartPluginClass: PlatformDeviceIdWindowsPlugin
+        fileName: platform_device_id_windows.dart
